@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/activity_main"
+        tools:context=".Activity.MainActivity">
+
+    <LinearLayout
+            android:padding="2dp"
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+        <ScrollView
+                android:fillViewport="true"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                android:id="@+id/city_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                        </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                android:id="@+id/class_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                        </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="2dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                        <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                                android:id="@+id/subject_spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                        </com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/round_shape_btn"
+                        android:text="Search"
+                        android:textColor="@color/white"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_30sdp" />
+
+                <TextView
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_margin="5dp"
+                        android:text="SUBJECTS"
+                        android:textColor="@color/dark_blue_color"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+
+                <com.ekoebtech.tutorforme.Source.HeaderGridView
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        android:isScrollContainer="false"
+                        android:horizontalSpacing="5dp"
+                        android:verticalSpacing="5dp"
+                        android:numColumns="3"
+                        android:stretchMode="columnWidth"
+                        android:elevation="5dp"
+                        android:id="@+id/simpleGridView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                />
+
+                <TextView
+                        android:textSize="@dimen/_12sdp"
+                        android:layout_margin="5dp"
+                        android:text="Featured Tutors"
+                        android:textColor="@color/dark_blue_color"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/tutore_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
