@@ -1,15 +1,18 @@
 package com.ekoebtech.tutorforme.Adapter
 
 import android.app.Activity
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.FragmentActivity
 import com.ekoebtech.tutorforme.Model.SubjectListModel
 import com.ekoebtech.tutorforme.R
 
-class SubjectListAdapter(var activity: Activity,var listModel: ArrayList<SubjectListModel>) : BaseAdapter() {
+class SubjectListAdapter(var activity: Activity, var listModel: ArrayList<SubjectListModel>) : BaseAdapter() {
 
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
@@ -18,8 +21,10 @@ class SubjectListAdapter(var activity: Activity,var listModel: ArrayList<Subject
         var layoutInflater : LayoutInflater = LayoutInflater.from(activity)
         convertView = layoutInflater.inflate(R.layout.subject_list_item_layout,null)
 
+        val gridBack = convertView.findViewById(R.id.grid_layout) as LinearLayout
         val subjectNameTxt = convertView.findViewById(R.id.subject_name) as TextView
         subjectNameTxt.setText(model.subjectName)
+        gridBack.setBackgroundColor(Color.parseColor(model.subjectColor.trim()));
 
         return convertView
 

@@ -1,36 +1,61 @@
-package com.ekoebtech.tutorforme.Activity
+package com.ekoebtech.tutorforme.Fragment
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.graphics.PorterDuff
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.Menu
-import android.view.MenuItem
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.*
+import com.android.volley.DefaultRetryPolicy
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.VolleyLog
 import com.android.volley.toolbox.StringRequest
+import com.ekoebtech.tutorforme.Activity.TutorListActivity
 import com.ekoebtech.tutorforme.Adapter.SubjectListAdapter
 import com.ekoebtech.tutorforme.Adapter.TutorListAdapter
 import com.ekoebtech.tutorforme.Model.ClassListModel
 import com.ekoebtech.tutorforme.Model.SubjectListModel
 import com.ekoebtech.tutorforme.Model.TutorListModel
+
 import com.ekoebtech.tutorforme.R
 import com.ekoebtech.tutorforme.Source.AppController
 import com.ekoebtech.tutorforme.Source.SettingConstant
-
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.Serializable
 import java.util.ArrayList
 
-class MainActivity : AppCompatActivity() {
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
+/**
+ * A simple [Fragment] subclass.
+ * Activities that contain this fragment must implement the
+ * [DashboardFragment.OnFragmentInteractionListener] interface
+ * to handle interaction events.
+ * Use the [DashboardFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ *
+ */
+class DashboardFragment : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
+    private var listener: OnFragmentInteractionListener? = null
     var cityList = ArrayList<String>()
     var classList = ArrayList<ClassListModel>()
     var subjectList = ArrayList<String>()
@@ -47,166 +72,101 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
 
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        var rootView = inflater.inflate(R.layout.fragment_dashboard, container, false)
 
-       /* //expand height
-        this.simpleGridView.setExpanded(true)
+        //expand height
+        rootView.simpleGridView?.setExpanded(true)
 
-        subjectListAdapter = SubjectListAdapter(this,subjectListLimitedGrid)
-        simpleGridView.setAdapter(subjectListAdapter)
-
+        subjectListAdapter = SubjectListAdapter(requireActivity(),subjectListLimitedGrid)
+        rootView.simpleGridView.setAdapter(subjectListAdapter)
 
         //city Spinner
-        city_spinner.background.setColorFilter(resources.getColor(R.color.dark_blue_color),PorterDuff.Mode.SRC_ATOP)
-        cityAdapter = ArrayAdapter(applicationContext, R.layout.customize_spinner,cityList)
+        rootView.city_spinner.background.setColorFilter(resources.getColor(R.color.dark_blue_color), PorterDuff.Mode.SRC_ATOP)
+        cityAdapter = ArrayAdapter(activity, R.layout.customize_spinner,cityList)
         cityAdapter.setDropDownViewResource(R.layout.customize_spinner)
-        city_spinner.setAdapter(cityAdapter)
+        rootView.city_spinner.setAdapter(cityAdapter)
 
         //class Spinner
-        class_spinner.background.setColorFilter(resources.getColor(R.color.dark_blue_color),PorterDuff.Mode.SRC_ATOP)
-        classAdapter = ArrayAdapter(applicationContext, R.layout.customize_spinner,classList)
+        rootView.class_spinner.background.setColorFilter(resources.getColor(R.color.dark_blue_color), PorterDuff.Mode.SRC_ATOP)
+        classAdapter = ArrayAdapter(activity, R.layout.customize_spinner,classList)
         classAdapter.setDropDownViewResource(R.layout.customize_spinner)
-        class_spinner.setAdapter(classAdapter)
+        rootView.class_spinner.setAdapter(classAdapter)
 
         //subject Spinner
-        subject_spinner.background.setColorFilter(resources.getColor(R.color.dark_blue_color),PorterDuff.Mode.SRC_ATOP)
-        subjectAdapter = ArrayAdapter(applicationContext,
+        rootView.subject_spinner.background.setColorFilter(resources.getColor(R.color.dark_blue_color), PorterDuff.Mode.SRC_ATOP)
+        subjectAdapter = ArrayAdapter(activity,
             R.layout.customize_spinner,subjectList)
         subjectAdapter.setDropDownViewResource(R.layout.customize_spinner)
-        subject_spinner.setAdapter(subjectAdapter)
+        rootView.subject_spinner.setAdapter(subjectAdapter)
 
-        tutorListAdapter = TutorListAdapter(tutorList,this)
-        var mLayoutInflater:RecyclerView.LayoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,true)
-        tutore_list.setLayoutManager(mLayoutInflater)
-        tutore_list.setItemAnimator(DefaultItemAnimator())
-        tutore_list.setAdapter(tutorListAdapter)
+        tutorListAdapter = TutorListAdapter(tutorList, this!!.activity)
+        var mLayoutInflater: RecyclerView.LayoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL,true)
+        rootView.tutore_list.setLayoutManager(mLayoutInflater)
+        rootView.tutore_list.setItemAnimator(DefaultItemAnimator())
+        rootView.tutore_list.setAdapter(tutorListAdapter)
 
-        tutore_list.scrollToPosition(1)
+        rootView.tutore_list.scrollToPosition(1)
 
         //set the image drop down icon
-        drop_down_btn.setBackgroundResource(R.drawable.ic_arrow_down)
+        rootView.drop_down_btn.setBackgroundResource(R.drawable.ic_arrow_down)
 
-        drop_down_btn.setOnClickListener {
+        rootView.drop_down_btn.setOnClickListener {
 
             if (isFlag) {
-                drop_down_btn.setBackgroundResource(R.drawable.ic_arrow_up)
-                subjectListAdapter = SubjectListAdapter(this, subjectListGrid)
-                simpleGridView.setAdapter(subjectListAdapter)
+                rootView.drop_down_btn.setBackgroundResource(R.drawable.ic_arrow_up)
+                subjectListAdapter = SubjectListAdapter(activity!!, subjectListGrid)
+                rootView.simpleGridView.setAdapter(subjectListAdapter)
                 isFlag = false
             }else
             {
-                drop_down_btn.setBackgroundResource(R.drawable.ic_arrow_down)
-                subjectListAdapter = SubjectListAdapter(this, subjectListLimitedGrid)
-                simpleGridView.setAdapter(subjectListAdapter)
+                rootView.drop_down_btn.setBackgroundResource(R.drawable.ic_arrow_down)
+                subjectListAdapter = SubjectListAdapter(activity!!, subjectListLimitedGrid)
+                rootView.simpleGridView.setAdapter(subjectListAdapter)
                 isFlag = true
 
             }
 
+        }
+
+        rootView.simpleGridView.setOnItemClickListener { adapterView: AdapterView<*>, view1: View, i: Int, l: Long ->
+
+            var intent = Intent(activity,TutorListActivity :: class.java )
+            intent.putExtra("CityList",cityList)
+            intent.putParcelableArrayListExtra("ClassList",classList)
+            intent.putExtra("SubjectList",subjectList)
+            intent.putExtra("SubjectName",subjectListGrid.get(i).subjectName)
+            startActivity(intent) }
+
+        /*rootView.simpleGridView.setOnItemClickListener(AdapterView.OnItemClickListener
+        { parent, view, position, id ->
 
 
-        }*/
+
+        })*/
 
 
-       // getLoadData()
+
+        //call API
+        callHomeAPI(SettingConstant.APIMOBILENUMBER,SettingConstant.APIPASSWORD)
 
 
-        callHomeAPI("1111111111","123456")
-
+        return rootView
     }
-
-/*
-    fun getLoadData()
-
-    {
-*//* var model = SubjectListModel("Math")
-subjectListGrid.add(model)
-
-model = SubjectListModel("English")
-subjectListGrid.add(model)
-
-model = SubjectListModel("Hindi")
-subjectListGrid.add(model)
-
-model = SubjectListModel("Physics")
-subjectListGrid.add(model)
-
-model = SubjectListModel("Chemistry")
-subjectListGrid.add(model)
-
-
-model = SubjectListModel("Account")
-subjectListGrid.add(model)*//*
-
-*//*------Tutor List -------*//*
-var tutorModel = TutorListModel("")
-tutorList.add(tutorModel)
-
-tutorModel = TutorListModel("")
-tutorList.add(tutorModel)
-
-tutorModel = TutorListModel("")
-tutorList.add(tutorModel)
-
-tutorModel = TutorListModel("")
-tutorList.add(tutorModel)
-
-tutorModel = TutorListModel("")
-tutorList.add(tutorModel)
-
-
-tutorModel = TutorListModel("")
-tutorList.add(tutorModel)
-
-
-*//*   *//**//*--------city spinner--------*//**//*
-cityList.add("Select City")
-cityList.add("Ahmadabad")
-cityList.add("Agra")
-cityList.add("Delhi")
-cityList.add("Jaipur")
-cityList.add("Pune")
-cityList.add("Allahabad")
-cityList.add("Bhopal")
-cityList.add("Indore")
-cityList.add("Hydrabad")
-cityList.add("Visakhapatnam's")*//*
-
-*//*   *//**//*-----class spinner data------*//**//*
-classList.add("Select Class")
-classList.add("Class I")
-classList.add("Class II")
-classList.add("Class III")
-classList.add("Class IV")
-classList.add("Class V")
-classList.add("Class VI")
-classList.add("Class VII")
-classList.add("Class VIII")
-classList.add("Class XI")
-classList.add("Class X")
-*//*
-*//*-----Subject spinner data------*//*
-*//*   subjectList.add("Select Subject")
-subjectList.add("Math")
-subjectList.add("Hindi")
-subjectList.add("Physics")
-subjectList.add("Chemestry")
-subjectList.add("SST")
-subjectList.add("Account")*//*
-
-
-//cityAdapter.notifyDataSetChanged()
-//classAdapter.notifyDataSetChanged()
-// subjectAdapter.notifyDataSetChanged()
-// subjectListAdapter.notifyDataSetChanged()
-        tutorListAdapter.notifyDataSetChanged()
-
-    }*/
 
     fun callHomeAPI(apiUserMobileNo : String , password :String )
     {
-        val pDialog = ProgressDialog(this)
+        val pDialog = ProgressDialog(activity)
         pDialog.setMessage("Loading...")
         pDialog.setCancelable(false)
         pDialog.show()
@@ -234,12 +194,15 @@ subjectList.add("Account")*//*
                         val subjectListArray = jsonObject.getJSONArray("SubjectList")
                         val tutorListArray = jsonObject.getJSONArray("TutorList")
 
+                        cityList.add("Select City")
                         //city_list
                         for (i in 0 until jsonArray.length()) {
                             val `object` = jsonArray.getJSONObject(i)
                             val CityName = `object`.getString("CityName")
                             cityList.add(CityName)
                         }
+
+                        classList.add(ClassListModel("Select Class","0"))
 
                         for (l in 0 until classListArray.length())
                         {
@@ -250,6 +213,7 @@ subjectList.add("Account")*//*
                             classList.add(ClassListModel(className,classId))
                         }
 
+                        subjectList.add("Select Subject")
                         for (k in 0 until subjectListArray.length())
                         {
                             val subjectListObj = subjectListArray.getJSONObject(k)
@@ -291,16 +255,6 @@ subjectList.add("Account")*//*
 
                         }
 
-                    } else if (Status.equals("3", ignoreCase = true)) {
-
-                        /* val Message = jsonObject.getString("Message")
-
-           viewDialog.showLogoutDialog(
-               this@TeacherStudentListActivity,
-               "You are already logged in to another device. You will now be logged \"out\" from that device."
-           )*/
-
-
                     }
 
                     cityAdapter.notifyDataSetChanged()
@@ -331,20 +285,58 @@ subjectList.add("Account")*//*
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-     menuInflater.inflate(R.menu.menu_main, menu)
-
-        return true
-
+  /*  // TODO: Rename method, update argument and hook method into UI event
+    fun onButtonPressed(uri: Uri) {
+        listener?.onFragmentInteraction(uri)
     }
 
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnFragmentInteractionListener) {
+            listener = context
+        } else {
+            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
         }
-
     }
 
+    override fun onDetach() {
+        super.onDetach()
+        listener = null
+    }*/
+
+    /**
+     * This interface must be implemented by activities that contain this
+     * fragment to allow an interaction in this fragment to be communicated
+     * to the activity and potentially other fragments contained in that
+     * activity.
+     *
+     *
+     * See the Android Training lesson [Communicating with Other Fragments]
+     * (http://developer.android.com/training/basics/fragments/communicating.html)
+     * for more information.
+     */
+    interface OnFragmentInteractionListener {
+        // TODO: Update argument type and name
+        fun onFragmentInteraction(uri: Uri)
+    }
+
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment DashboardFragment.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance() =
+            DashboardFragment().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
 }

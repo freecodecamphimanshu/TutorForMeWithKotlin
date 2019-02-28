@@ -14,23 +14,27 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
-            android:background="#e0e0e0"
+            android:id="@+id/grid_layout"
             android:gravity="center"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
-                android:src="@drawable/study"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp" />
+                app:srcCompat="@drawable/ic_books"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp" />
 
             <TextView
-                android:id="@+id/subject_name"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Subject1"/>
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:id="@+id/subject_name"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Subject1"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
