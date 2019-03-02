@@ -14,4 +14,16 @@
 	<style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 	<style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+
+	<!--<style name="RubyGarageTheme" parent="AppTheme">
+		<item name="faceColor">@color/colorWhite</item>
+		<item name="gradeColor">@color/orange</item>
+		<item name="zeroGradeGradientColors">@array/garageZeroGradeGradientColors</item>
+		<item name="oneGradeGradientColors">@array/garageOneGradeGradientColors</item>
+		<item name="twoGradeGradientColors">@array/garageTwoGradeGradientColors</item>
+		<item name="threeGradeGradientColors">@array/garageThreeGradeGradientColors</item>
+		<item name="fourGradeGradientColors">@array/garageFourGradeGradientColors</item>
+		<item name="fiveGradeGradientColors">@array/garageFiveGradeGradientColors</item>
+	</style>-->
+
 </resources>

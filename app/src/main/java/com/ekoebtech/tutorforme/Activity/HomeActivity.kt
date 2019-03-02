@@ -42,7 +42,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         //by default call fragment
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.root_layout, DashboardFragment.newInstance(), "rageComicList")
+            .replace(R.id.root_layout, DashboardFragment.newInstance(), "rageComicList")
             .commit()
     }
 
@@ -77,7 +77,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
                 supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.root_layout, DashboardFragment.newInstance(), "rageComicList")
+                    .replace(R.id.root_layout, DashboardFragment.newInstance(), "rageComicList")
                     .commit()
                 // Handle the camera action
             }

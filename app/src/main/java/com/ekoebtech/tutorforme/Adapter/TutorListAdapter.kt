@@ -1,6 +1,7 @@
 package com.ekoebtech.tutorforme.Adapter
 
 import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,8 @@ import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import com.ekoebtech.tutorforme.Activity.TutorListActivity
+import com.ekoebtech.tutorforme.Activity.TutorProfileActivity
 import com.ekoebtech.tutorforme.Model.TutorListModel
 import com.ekoebtech.tutorforme.R
 import com.ekoebtech.tutorforme.Source.SettingConstant
@@ -38,6 +41,13 @@ class TutorListAdapter(var list: ArrayList<TutorListModel>, var activity: Activi
             RequestOptions()
             .placeholder(R.drawable.prf)
         ).into(holder.tutorImage);
+
+
+        holder.profileBtn.setOnClickListener(View.OnClickListener {
+            var intent = Intent(activity, TutorProfileActivity :: class.java )
+            activity!!.startActivity(intent) })
+
+
     }
 
     override fun getItemCount(): Int {
@@ -55,6 +65,7 @@ class TutorListAdapter(var list: ArrayList<TutorListModel>, var activity: Activi
          var tutorQuali = itemView.tutor_qualification
          var tutorTeaches = itemView.tutor_teaches
          var tutorArea = itemView.tutor_area
+         var profileBtn = itemView.profile_btn
 
      }
 }

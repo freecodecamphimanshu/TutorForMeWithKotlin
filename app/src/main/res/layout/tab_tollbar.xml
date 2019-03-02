@@ -1,0 +1,22 @@
+<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		android:background="@color/blue_color_500"
+		app:popupTheme="@style/AppTheme.PopupOverlay"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<TextView
+			android:layout_marginRight="5dp"
+			android:id="@+id/schoolname"
+			android:layout_gravity="center|center_vertical"
+			android:gravity="center"
+			android:text="Tutorforme"
+			android:textColor="@color/white"
+			android:textSize="@dimen/_15sdp"
+			android:textStyle="bold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" />
+
+</androidx.appcompat.widget.Toolbar>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		tools:context=".Fragment.TutorProfileReviewFragment">
+
+
+	<com.dm.emotionrating.library.GradientBackgroundView
+			android:id="@+id/gradientBackgroundView"
+			android:layout_width="0dp"
+			android:layout_height="0dp"
+			app:layout_constraintBottom_toBottomOf="parent"
+			app:layout_constraintEnd_toEndOf="parent"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toTopOf="parent" />
+
+	<ScrollView
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintBottom_toBottomOf="parent"
+			android:layout_width="0dp"
+			android:layout_height="0dp">
+
+	<LinearLayout
+			android:layout_margin="@dimen/_5sdp"
+			android:orientation="vertical"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<com.dm.emotionrating.library.EmotionView
+				android:id="@+id/emotionView"
+				android:paddingLeft="@dimen/_40sdp"
+				android:paddingRight="@dimen/_40sdp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+
+				/>
+
+		<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+			<TextView
+					android:textStyle="bold"
+					android:gravity="center"
+					android:textColor="@color/white"
+					android:textSize="@dimen/_12sdp"
+					android:layout_width="0dp"
+					android:layout_weight=".3"
+					android:layout_height="match_parent"
+			        android:text="Your Review : "/>
+
+			<LinearLayout
+					android:gravity="center"
+					android:layout_width="0dp"
+					android:layout_weight=".7"
+					android:layout_height="match_parent">
+
+			<com.dm.emotionrating.library.RatingView
+				android:id="@+id/ratingView"
+				android:layout_width="wrap_content"
+				android:layout_height="@dimen/_25sdp"
+				/>
+
+			</LinearLayout>
+		</LinearLayout>
+
+		<LinearLayout
+				android:orientation="vertical"
+				android:layout_margin="@dimen/_5sdp"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+			<EditText
+					android:textSize="@dimen/_8sdp"
+					android:hint="Your NAME"
+					android:padding="@dimen/_3sdp"
+					android:textColor="#787878"
+					android:background="@drawable/edit_text_layout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"/>
+
+			<EditText
+					android:textSize="@dimen/_8sdp"
+					android:layout_marginTop="@dimen/_8sdp"
+					android:hint="Email ID"
+					android:padding="@dimen/_3sdp"
+					android:textColor="#787878"
+					android:background="@drawable/edit_text_layout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"/>
+
+			<EditText
+					android:textSize="@dimen/_8sdp"
+					android:layout_marginTop="@dimen/_8sdp"
+					android:hint="Phone No."
+					android:padding="@dimen/_3sdp"
+					android:textColor="#787878"
+					android:background="@drawable/edit_text_layout"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"/>
+
+
+			<EditText
+					android:gravity="top"
+					android:textSize="@dimen/_8sdp"
+					android:layout_marginTop="@dimen/_8sdp"
+					android:hint="Write a Review"
+					android:padding="@dimen/_2sdp"
+					android:textColor="#787878"
+					android:background="@drawable/edit_text_layout"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/_60sdp"/>
+
+			</LinearLayout>
+
+		<Button
+				android:layout_marginRight="@dimen/_20sdp"
+				android:layout_marginLeft="@dimen/_20sdp"
+				android:id="@+id/submitButton"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/_8sdp"
+				android:layout_marginTop="@dimen/_10sdp"
+				android:background="@drawable/selector_background_submit_button"
+				android:enabled="false"
+				android:text="Submit"
+				android:textAllCaps="false"
+				android:textColor="@drawable/selector_color_submit_button"
+				android:textStyle="bold"
+				 />
+
+
+	</LinearLayout>
+
+	</ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

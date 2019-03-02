@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
@@ -11,4 +11,15 @@
     <color name="blue_color_500">#2196F3</color>
     <color name="white">#ffffff</color>
     <color name="red_color">#D32F2F</color>
+
+
+    <color name="orange">#FDAC54</color>
+    <color name="firstGradientColor">#626DBD</color>
+    <color name="secondGradientColor">#544BA6</color>
+    <color name="thirdGradientColor">#493395</color>
+    <color name="fourthGradientColor">#43248B</color>
+    <color name="fifthGradientColor">#411F88</color>
+    <color name="colorTranslucentBlack">#0A000000</color>
+    <color name="colorTranslucentGray">#C8E5E5E5</color>
+    <color name="colorTransparent">#00000000</color>
 </resources>

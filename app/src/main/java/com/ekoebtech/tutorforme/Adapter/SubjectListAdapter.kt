@@ -11,6 +11,10 @@ import android.widget.TextView
 import androidx.fragment.app.FragmentActivity
 import com.ekoebtech.tutorforme.Model.SubjectListModel
 import com.ekoebtech.tutorforme.R
+import android.graphics.drawable.GradientDrawable
+
+
+
 
 class SubjectListAdapter(var activity: Activity, var listModel: ArrayList<SubjectListModel>) : BaseAdapter() {
 
@@ -24,7 +28,10 @@ class SubjectListAdapter(var activity: Activity, var listModel: ArrayList<Subjec
         val gridBack = convertView.findViewById(R.id.grid_layout) as LinearLayout
         val subjectNameTxt = convertView.findViewById(R.id.subject_name) as TextView
         subjectNameTxt.setText(model.subjectName)
-        gridBack.setBackgroundColor(Color.parseColor(model.subjectColor.trim()));
+        subjectNameTxt.setTextColor(Color.parseColor(model.subjectColor.trim()))
+      //  gridBack.setBackgroundColor(Color.parseColor(model.subjectColor.trim()));
+        val drawable = gridBack.getBackground() as GradientDrawable
+        drawable.setStroke(3, Color.parseColor(model.subjectColor.trim()))
 
         return convertView
 

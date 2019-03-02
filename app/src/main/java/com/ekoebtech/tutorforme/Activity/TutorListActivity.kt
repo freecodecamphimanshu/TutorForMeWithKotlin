@@ -42,7 +42,7 @@ class TutorListActivity : AppCompatActivity() {
     var cityList = ArrayList<String>()
     var classList = ArrayList<ClassListModel>()
     var subjectList = ArrayList<String>()
-    var searchListUrl = SettingConstant.BASEURL_SECOND + "homeapi/SearchList"
+    var searchListUrl = SettingConstant.BASEURL + "homeapi/SearchList"
     lateinit var subjectName : String
 
 

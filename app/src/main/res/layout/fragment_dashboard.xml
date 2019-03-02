@@ -115,7 +115,7 @@
 						android:isScrollContainer="false"
 						android:horizontalSpacing="5dp"
 						android:verticalSpacing="5dp"
-						android:numColumns="3"
+						android:numColumns="2"
 						android:stretchMode="columnWidth"
 						android:elevation="5dp"
 						android:id="@+id/simpleGridView"
