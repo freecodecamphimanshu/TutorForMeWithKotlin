@@ -14,4 +14,5 @@
 	<string name="title_activity_tutor_profile">TutorProfileActivity</string>
 	<string name="section_format">Hello World from section: %1$d</string>
 	<string name="submit_button_clicked">Submit button clicked with %d rating!</string>
+	<string name="title_activity_register">RegisterActivity</string>
 </resources>

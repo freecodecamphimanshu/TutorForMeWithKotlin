@@ -1,7 +1,7 @@
 <androidx.appcompat.widget.Toolbar
 		android:id="@+id/toolbar"
 		android:layout_width="match_parent"
-		android:layout_height="?attr/actionBarSize"
+		android:layout_height="@dimen/_25sdp"
 		android:background="@color/blue_color_500"
 		app:popupTheme="@style/AppTheme.PopupOverlay"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -14,7 +14,7 @@
 			android:gravity="center"
 			android:text="Tutorforme"
 			android:textColor="@color/white"
-			android:textSize="@dimen/_15sdp"
+			android:textSize="@dimen/_12sdp"
 			android:textStyle="bold"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content" />

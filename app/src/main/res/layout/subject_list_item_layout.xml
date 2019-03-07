@@ -22,20 +22,20 @@
             android:layout_height="match_parent">
 
             <ImageView
+                    android:visibility="gone"
                 app:srcCompat="@drawable/ic_books"
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp" />
 
             <TextView
+                    android:padding="@dimen/_5sdp"
                     android:textSize="@dimen/_10sdp"
                     android:textStyle="bold"
-                    android:textColor="@color/white"
-                    android:layout_marginBottom="@dimen/_5sdp"
                     android:id="@+id/subject_name"
                     android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Subject1"/>
+                    android:text=""/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

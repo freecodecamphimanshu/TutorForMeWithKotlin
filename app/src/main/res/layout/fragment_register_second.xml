@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
+             tools:context=".Fragment.RegisterSecondFragment">
+
+	<ScrollView
+			android:fillViewport="true"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<LinearLayout
+				android:background="@color/white"
+				android:orientation="vertical"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+
+			<TextView
+					android:gravity="center"
+					android:textStyle="bold"
+					android:textSize="@dimen/_14sdp"
+					android:textColor="#000000"
+					android:layout_marginTop="@dimen/_10sdp"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:text="Additional Details"/>
+
+
+			<LinearLayout
+					android:layout_margin="@dimen/_10sdp"
+					android:orientation="vertical"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content">
+
+				<EditText
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Email ID"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<LinearLayout
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="User ID"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				>
+					<Spinner
+							android:layout_width="match_parent"
+							android:layout_height="match_parent">
+
+					</Spinner>
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Password"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+				>
+					<TextView
+							android:padding="@dimen/_2sdp"
+							android:textSize="@dimen/_12sdp"
+							android:textColorHint="#000000"
+							android:hint="D.O.B"
+							android:textColor="#787878"
+							android:layout_width="0dp"
+							android:layout_weight=".8"
+							android:layout_height="wrap_content"
+							android:background="@drawable/round_blue_border_btn"
+					/>
+
+					<ImageView
+							android:layout_gravity="center_vertical"
+							android:layout_width="0dp"
+							android:layout_weight=".2"
+							android:layout_height="@dimen/_20sdp"
+							app:srcCompat="@drawable/ic_date"
+					/>
+
+
+				</LinearLayout>
+
+				<LinearLayout
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="User ID"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				>
+					<Spinner
+							android:layout_width="match_parent"
+							android:layout_height="match_parent">
+
+					</Spinner>
+
+				</LinearLayout>
+
+
+				<EditText
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Adress Line 1"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<EditText
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Adress Line 2"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<EditText
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Pin Code"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<EditText
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Houerly Fees"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<EditText
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="City"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<LinearLayout
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="User ID"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				>
+					<Spinner
+							android:layout_width="match_parent"
+							android:layout_height="match_parent">
+
+					</Spinner>
+
+				</LinearLayout>
+
+				<EditText
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Total Exp."
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<EditText
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Qualification"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+				<EditText
+						android:gravity="top"
+						android:layout_marginTop="@dimen/_10sdp"
+						android:padding="@dimen/_2sdp"
+						android:textSize="@dimen/_12sdp"
+						android:textColorHint="#000000"
+						android:hint="Tutpring Experence"
+						android:textColor="#787878"
+						android:layout_width="match_parent"
+						android:layout_height="@dimen/_80sdp"
+						android:background="@drawable/round_blue_border_btn"
+				/>
+
+
+
+				<Button
+						android:id="@+id/nextBtn"
+						android:padding="@dimen/_5sdp"
+						android:layout_marginTop="@dimen/_10sdp"
+						android:layout_gravity="center"
+						android:gravity="center"
+						android:layout_width="match_parent"
+						android:textColor="@color/white"
+						android:textSize="@dimen/_12sdp"
+						android:text="Next"
+						android:layout_height="@dimen/_30sdp"
+						android:background="@drawable/round_shape_btn"
+				/>
+
+
+			</LinearLayout>
+		</LinearLayout>
+
+	</ScrollView>
+</FrameLayout>

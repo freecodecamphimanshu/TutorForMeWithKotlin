@@ -22,4 +22,5 @@
     <color name="colorTranslucentBlack">#0A000000</color>
     <color name="colorTranslucentGray">#C8E5E5E5</color>
     <color name="colorTransparent">#00000000</color>
+    <color name="green_color">#43A047</color>
 </resources>

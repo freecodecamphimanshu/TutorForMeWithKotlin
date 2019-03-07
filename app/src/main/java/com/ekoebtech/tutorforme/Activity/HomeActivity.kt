@@ -1,5 +1,6 @@
 package com.ekoebtech.tutorforme.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -11,6 +12,7 @@ import android.view.MenuItem
 import android.view.WindowManager
 import androidx.appcompat.widget.Toolbar
 import com.ekoebtech.tutorforme.Fragment.DashboardFragment
+import com.ekoebtech.tutorforme.Fragment.LoginFragment
 import com.ekoebtech.tutorforme.R
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.app_bar_home.*
@@ -82,9 +84,15 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 // Handle the camera action
             }
             R.id.nav_gallery -> {
-
+                supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.root_layout, LoginFragment.newInstance(), "rageComicList")
+                    .commit()
             }
-            R.id.nav_slideshow -> {
+            R.id.nav_slideshow ->
+            {
+                var intent = Intent(this,RegisterActivity :: class.java)
+                startActivity(intent)
 
             }
             R.id.nav_manage -> {
